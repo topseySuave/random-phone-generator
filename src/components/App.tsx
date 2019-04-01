@@ -1,4 +1,5 @@
 import * as React from "react";
+import numbersStore from '../storage/db.json';
 import Button from "./Button";
 import NumberLists from "./NumberLists";
 import generatePhoneNumber from "./generatePhoneNumber";
@@ -29,7 +30,6 @@ const App = () => {
     order: "",
     numbers: []
   });
-  const [newNumbers, setNewNumbers] = React.useState([]);
   const [amountOfNumbers, setAmountOfNumbers] = React.useState(0);
 
   const generateNumber = (amount = 25) => {
@@ -38,34 +38,34 @@ const App = () => {
     for (let i = 0; i < newAmount; i++) {
       totalNumbers = [...totalNumbers, `0${generatePhoneNumber()}`];
     }
-    setNewNumbers(totalNumbers);
+    numbersStore.numbers = totalNumbers;
     setAllNumbers({ numbers: totalNumbers, order: allNumbers.order });
   };
 
   const findMax = () => {
-    let max = newNumbers[0];
-    newNumbers.forEach((number) => {
+    let max = numbersStore.numbers[0];
+    numbersStore.numbers.forEach((number) => {
       max = number > max ? number : max;
     })
     setAllNumbers({ numbers: [max], order: allNumbers.order });
   }
 
   const findMin = () => {
-    let min = newNumbers[0];
-    newNumbers.forEach((number) => {
+    let min = numbersStore.numbers[0];
+    numbersStore.numbers.forEach((number) => {
       min = number < min ? number : min;
     })
     setAllNumbers({ numbers: [min], order: allNumbers.order });
   }
 
   const sort = ({ target: { value }} : any) => {
-    let rearrangement = newNumbers;
+    let rearrangement = numbersStore.numbers;
     const newOrder = value || '';
     if (value === 'ascending') {
-      rearrangement = newNumbers.sort((a, b) => a - b);
+      rearrangement = numbersStore.numbers.sort((a, b) => a - b);
     }
     if (value === 'descending') {
-      rearrangement = newNumbers.sort((a, b) => b - a);
+      rearrangement = numbersStore.numbers.sort((a, b) => b - a);
     }
     setAllNumbers({ order: newOrder, numbers: rearrangement });
   }
@@ -83,12 +83,12 @@ const App = () => {
       </div>
       <Button
         placeholder="Generate Numbers"
-        handleClick={() => generateNumber(amountOfNumbers || 25)}
+        handleClick={() => generateNumber(amountOfNumbers || 20)}
       />
       {allNumbers.numbers.length > 0 && (
         <>
           <a
-            href={`data:text/plain;charset=utf-8,${newNumbers}`}
+            href={`data:text/plain;charset=utf-8,${numbersStore.numbers}`}
             download="numbers.txt"
           >
             Download Numbers
