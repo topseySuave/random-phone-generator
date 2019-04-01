@@ -1,0 +1,17 @@
+.numberLists {
+  margin-top: 50px;
+  height: 460px;
+  text-align: center;
+  overflow-y: scroll;
+
+  ul {
+    padding: 0px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    li {
+      padding: 10px 0px;
+    }
+  }
+}

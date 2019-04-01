@@ -1,0 +1,44 @@
+@import 'breakpoints';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  outline: 0;
+}
+
+body {
+  background-color: #333;// change for light mode
+  color: #FFF;// change for light mode
+  font-family: 'Montserrat', sans-serif;
+
+  a {
+    color: #FFF;
+  }
+}
+
+.container {
+  display: block;
+  width: 40vw;
+  margin: 2% auto;
+  background: rgba(0, 0, 0, .5);
+  padding: 5vw;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+
+  @include maxBreakpoint('S') {
+    width: 100vw;
+    margin: 2% 0;
+    padding: 10vw;
+  }
+
+  input {
+    padding: 10px;
+    width: 50%;
+    border: none;
+    background: rgba(255, 255, 255, .1); // change for light mode
+    border-radius: 25px;
+    color: #FFF; // change for light mode
+  }
+}
+
+

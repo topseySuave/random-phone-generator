@@ -5,8 +5,11 @@
   "dependencies": {
     "@types/jest": "24.0.11",
     "@types/node": "11.12.2",
+    "@types/random-number": "^0.0.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
+    "node-sass": "^4.11.0",
+    "random-number": "^0.0.9",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
@@ -16,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -26,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-testing-library": "^6.0.3"
+  }
 }

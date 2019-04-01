@@ -1,0 +1,27 @@
+$breakpoints: (
+  S: 670px, // Typical phone in landscape orientation
+  M: 770px, // Typical tablet
+  L: 992px, // Average-sized desktop browser
+  XL: 1400px, // Super large screens
+);
+
+$minBreakpointVal: (
+  S: 0,
+  M: map-get($breakpoints, 'S') + 1,
+  L: map-get($breakpoints, 'M') + 1,
+  XL: map-get($breakpoints, 'L') + 1,
+);
+
+// All breakpoints above and including $size
+@mixin maxBreakpoint($size) {
+  @media (max-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+// All breakpoints below and including $size
+@mixin minBreakpoint($size) {
+  @media (min-width: #{map-get($minBreakpointVal, $size)}) {
+    @content;
+  }
+}
