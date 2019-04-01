@@ -15,6 +15,7 @@ Object {
           class=""
         >
           <input
+            data-testid="number-input"
             name="generator"
             placeholder="input the amount of numbers you want to generate"
             type="number"
@@ -37,6 +38,7 @@ Object {
         class=""
       >
         <input
+          data-testid="number-input"
           name="generator"
           placeholder="input the amount of numbers you want to generate"
           type="number"

@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test -u --coverage && codecov --token=",
     "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },
@@ -33,5 +33,11 @@
   ],
   "devDependencies": {
     "react-testing-library": "^6.0.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{ts,tsx}",
+      "!<rootDir>/src/serviceWorker.ts"
+    ]
   }
 }

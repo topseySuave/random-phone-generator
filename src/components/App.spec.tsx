@@ -1,5 +1,5 @@
 
-import { render, fireEvent, getAllByTestId, getByTestId, cleanup } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import React from 'react';
 import App from './App';
 import Index from '../index';
@@ -16,6 +16,17 @@ describe('App test suite', () => {
 
   it('Should render properly', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Should generate 100 numbers when 100 is typed into the input field', () => {
+    const inputField = getByTestId('number-input');
+    fireEvent.change(inputField, { target: { value: '100' }});
+    
+    const generateNumberButton = getByText('Generate Numbers');
+    fireEvent.click(generateNumberButton);
+  
+    const number = getByTestId('number');
+    expect(number).toBeTruthy();
   });
 
   it('Should generates numbers when the generate number button is clicked', () => {

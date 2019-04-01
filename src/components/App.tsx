@@ -78,6 +78,7 @@ const App = () => {
           type="number"
           placeholder="input the amount of numbers you want to generate"
           onChange={e => setAmountOfNumbers(parseInt(e.target.value, 10))}
+          data-testid="number-input"
         />
       </div>
       <Button
