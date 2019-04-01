@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test -u --coverage && codecov --token=",
+    "test": "react-scripts test -u --coverage && codecov --token=473160ec-f0b0-4cd0-86d8-f5922347f247",
     "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },
