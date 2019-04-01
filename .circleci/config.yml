@@ -27,8 +27,8 @@ jobs:
             - v1-dependencies-
 
       - run:
-        yarn add -g codecov
-        yarn install
+          yarn add -g codecov
+          yarn install
 
       - save_cache:
           paths:
